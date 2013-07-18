@@ -15,11 +15,9 @@ Easily display current Hijri/Islamic date (according to hijri calendar), anywher
 
 = Usage =
 
-Install and activate the plugin. Then go to your "Dashboard > Settings > Hijri Calendar" for detail usage instructions.
+Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > Usage" for detail usage instructions.
 
-= 
-
-Features: =
+= Features: =
 - Hijri Date (According to Hijri calendar)
 - Monthly Hijri Calendar
 - Date output language: English
@@ -40,23 +38,35 @@ Features: =
 
 == Changelog ==
 
+= 2.1 =
 
-= 1.0 = 
-* First release.
+
+* Hijri date adjustment option added.
+
+* New settings page added.
+
+* Menu changed to top level menu.
+
+* Hijri date format updated.
+
+* Server information tool added as an extra feature.
+
+
 
 = 2.0 =
 * New feature: Widget support added
 * New feature: Monthly Hijri Calendar
 * New shortcodes
 
+= 1.0 = 
+* First release.
 
 == Installation ==
 
 1. Upload the whole plugin folder to your /wp-content/plugins/ folder.
 2. Or, Go to: "Dashboard > Plugins > Add New" and search for "Hijri Calendar"
-
 3. Install and activate the plugin.
-4. Go to: Dashboard > Settings > Hijri Calendar
+4. Go to: Dashboard > Hijri Calendar > Usage
 
 
 == License ==

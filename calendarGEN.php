@@ -1,4 +1,5 @@
-<?php
+<?php
+
 //set here font, background etc for the calendar
 $fontfamily = isset($fontfamily) ? $fontfamily : "Verdana";
 $defaultfontcolor = isset($defaultfontcolor) ? $defaultfontcolor : "#000000";
@@ -11,12 +12,12 @@ $relfontsize = isset($relfontsize) ? $relfontsize : "1";
 $cssfontsize = isset($cssfontsize) ? $cssfontsize : "7pt";
 
 // obtain month, today date etc
-$month = (isset($month)) ? $month : date("n",time());
+$month = (isset($month)) ? $month : gmdate("n",time());
 $monthnames = array("January","February","March","April","May","June","July","August","September","October","November","December");
 $textmonth = $monthnames[$month - 1];
-$year = (isset($year)) ? $year : date("Y",time());
-$today = (isset($today))? $today : date("j", time());
-$today = ($month == date("n",time())) ? $today : 32;
+$year = (isset($year)) ? $year : gmdate("Y",time());
+$today = (isset($today))? $today : gmdate("j", time());
+$today = ($month == gmdate("n",time())) ? $today : 32;
 
 // The Names of Hijri months
 $mname = array("Muharram","Safar","Rabi'ul Awal","Rabi'ul Akhir","Jamadil Awal","Jamadil Akhir","Rajab","Sha'ban","Ramadhan","Shawwal","Zul Qida","Zul Hijja");
@@ -31,25 +32,25 @@ $days = 30;
 
 //checking leap year to adjust february days
 if ($month == 2)
-$days = (date("L",time())) ? 29 : 28;
+$days = (gmdate("L",time())) ? 29 : 28;
 
-$dayone = date("w",mktime(1,1,1,$month,1,$year));
-$daylast = date("w",mktime(1,1,1,$month,$days,$year));
+$dayone = gmdate("w",mktime(1,1,1,$month,1,$year));
+$daylast = gmdate("w",mktime(1,1,1,$month,$days,$year));
 $middleday = intval(($days-1)/2);
 
 //checking the hijri month on beginning of gregorian calendar
-$date_hijri = date("$year-$month-1");
+$date_hijri = gmdate("$year-$month-1");
 list ($HDays, $HMonths, $HYear) = Hijri($date_hijri);
 $smon_hijridone = $mname[$HMonths-1];
 $syear_hijridone = $HYear;
 
 //checking the hijri month on end of gregorian calendar
-$date_hijri = date("$year-$month-$days");
+$date_hijri = gmdate("$year-$month-$days");
 list ($HDays, $HMonths, $HYear) = Hijri($date_hijri);
 $smon_hijridlast = $mname[$HMonths-1];
 $syear_hijridlast = $HYear;
 //checking the hijri month on middle of gregorian calendar
-$date_hijri = date("$year-$month-$middleday");
+$date_hijri = gmdate("$year-$month-$middleday");
 list ($HDays, $HMonths, $HYear) = Hijri($date_hijri);
 $smon_hijridmiddle = $mname[$HMonths-1];
 $syear_hijridmiddle = $HYear;
@@ -122,7 +123,7 @@ if(6 - $daylast != 0)
 $span2 = 6 - $daylast;
 
 for($i = 1; $i <= $days; $i++):
-$dayofweek = date("w",mktime(1,1,1,$month,$i,$year));
+$dayofweek = gmdate("w",mktime(1,1,1,$month,$i,$year));
 $width = "14%";
 
 if($dayofweek == 0 || $dayofweek == 6)
@@ -157,11 +158,11 @@ width="<?php echo $width; ?>">
 <?php
 ?><font color="<?php echo $fontcolor; ?>" face="<?php echo $fontfamily; ?>" size="1"><?php
 
-$date_hijri = date("$year-$month-$i");
+$date_hijri = gmdate("$year-$month-$i");
 list ($HDays, $HMonths, $HYear) = Hijri($date_hijri);
 if ($HDays == 30) {
  $i = $i + 1;
- $date_hijri = date("$year-$month-$i");
+ $date_hijri = gmdate("$year-$month-$i");
  list ($HDays, $HMonths, $HYear) = Hijri($date_hijri);
  if ($HDays == 2) {
  $HDays = 1;

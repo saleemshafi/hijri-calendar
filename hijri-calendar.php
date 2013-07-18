@@ -4,23 +4,24 @@ Plugin Name: Hijri Calendar
 Plugin URI: http://i-onlinemedia.net/
 Description: "Hijri Calendar" is a simple and easy to use plugin that allows you to show hijri/islamic date according to hijri calendar, anywhere in your blog!
 Author: M.A. IMRAN
-Version: 2.0
+Version: 2.1
 Author URI: http://facebook.com/imran2w
 */
 
-function en_hijri_calendar() {
-
+function en_hijri_calendar() {
 include "calendarGEN.php";
 
 }
 
-
 function en_hijri_date() {
-
 include "uCal2.class.php";
 $d = new uCal2;
 
-$Hmonth = $d->date("M");
+$hijri_calendar_option1 = get_option('hijri_calendar_option1');
+if ($hijri_calendar_option1 == "") { $hijri_calendar_option1 = "0"; }
+$hdoffset = $hijri_calendar_option1 * 60 * 60;
+
+$Hmonth = $d->date("M", time()-$hdoffset);
 
 if($Hmonth == "Muh") {$Hmonth = "Muharram";}
 elseif($Hmonth == "Saf") {$Hmonth = "Safar"; }
@@ -35,7 +36,7 @@ elseif($Hmonth == "Shw") {$Hmonth = "Shawaal";}
 elseif($Hmonth == "DhQ") {$Hmonth = "Zul Qida";}
 elseif($Hmonth == "DhH") {$Hmonth = "Zul Hijja";}
 
-$en_hijridate = $d->date("jS") . " " . $Hmonth . ", " . $d->date("Y") . " Hijri";
+$en_hijridate = $d->date("jS", time()-$hdoffset) . " " . $Hmonth . ", " . $d->date("Y", time()-$hdoffset) . " A.H.";
 return $en_hijridate;
 }
 
@@ -55,7 +56,8 @@ extract($args);
 
 if(is_admin())
 	include 'hijri_calendar_admin.php';
-
+
+
 register_sidebar_widget('Hijri Calendar', 'widget_hijri_calendar');
 add_shortcode('en_hijri_date', 'en_hijri_date');
 add_shortcode('en_hijri_calendar', 'en_hijri_calendar');
