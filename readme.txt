@@ -38,6 +38,7 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 
 == Changelog ==
 
+
 = 2.1 =
 
 
