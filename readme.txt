@@ -1,9 +1,9 @@
-﻿=== Hijri Calendar ===
+=== Hijri Calendar ===
 Contributors: M.A. IMRAN
 Developer link: http://facebook.com/imran2w
 Tags: Hijri calendar, Hijri date, English Hijri date, Islamic calendar, Muslim calendar
 Requires at least: 2.5
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: trunk
 
 Easily display current Hijri/Islamic date (according to hijri calendar), anywhere in your wordpress blog!
@@ -14,18 +14,23 @@ Easily display current Hijri/Islamic date (according to hijri calendar), anywher
 
 
 = Usage =
-
 Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > Usage" for detail usage instructions.
 
 = Features: =
 - Hijri Date (According to Hijri calendar)
-- Monthly Hijri Calendar
-- Date output language: English
-
+- Monthly Hijri Calendar.
+- Date output language: English.
+- Easy date adjustment options.
+
 
 = Speciality =
-* Easy to use widget and shortcodes!
+* Very simple plugin.
+* Built-in functionality.
+* All time zone support.
+* Simple settings options.
+* Wide-range compatibility.
 * Date output in English Language!
+* Easy to use widget and shortcodes!
 * No special configuration or, knowledge required!
 
 
@@ -34,25 +39,23 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 * E-Mail: imran2w@gmail.com
 * Website: [www.i-onlinemedia.net](http://www.i-onlinemedia.net)
 
+* Special thanks to [Zikrun Badri](http://isact.org.au).
 
 
 == Changelog ==
 
+= 2.2 =
+* Bug fix: invalid ordinal suffix for days 11, 12 and 13.
+* Added time zone adjustment option.
+* Plugin icon changed.
+* Compatible with WP 3.6.
 
 = 2.1 =
-
-
 * Hijri date adjustment option added.
-
 * New settings page added.
-
 * Menu changed to top level menu.
-
 * Hijri date format updated.
-
 * Server information tool added as an extra feature.
-
-
 
 = 2.0 =
 * New feature: Widget support added
@@ -93,22 +96,17 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 
 Use these shortcodes in your blog post/page:
 
-
-
 * Show current date according to hijri calendar: [en_hijri_date]
 * Show monthly hijri calendar: [en_hijri_calendar]
 
 
 Or, Use these PHP codes in your theme's sidebar or template file:
 
-
-
 * Show current date according to hijri calendar: 
 < ?php echo do_shortcode('[en_hijri_date]'); ?>
 
 * Show monthly hijri calendar: 
 < ?php echo do_shortcode('[en_hijri_calendar]'); ?>
-
 
 
 == Screenshots ==

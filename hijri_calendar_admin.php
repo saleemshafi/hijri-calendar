@@ -19,7 +19,7 @@ add_action( 'admin_init', 'register_hijri_calendar_settings' );
 function register_hijri_calendar_settings() {
 
 //register our settings
-register_setting( 'hijri_calendar-settings-group', 'hijri_calendar_option1' );}
+register_setting( 'hijri_calendar-settings-group', 'hijri_calendar_option1' );register_setting( 'hijri_calendar-settings-group', 'hijri_calendar_time_zone' );}
 
 include "admin/sidebar.php";
 

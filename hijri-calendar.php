@@ -4,11 +4,12 @@ Plugin Name: Hijri Calendar
 Plugin URI: http://i-onlinemedia.net/
 Description: "Hijri Calendar" is a simple and easy to use plugin that allows you to show hijri/islamic date according to hijri calendar, anywhere in your blog!
 Author: M.A. IMRAN
-Version: 2.1
+Version: 2.2
 Author URI: http://facebook.com/imran2w
 */
 
-function en_hijri_calendar() {
+function en_hijri_calendar() {
+
 include "calendarGEN.php";
 
 }
@@ -16,6 +17,10 @@ include "calendarGEN.php";
 function en_hijri_date() {
 include "uCal2.class.php";
 $d = new uCal2;
+
+$hcal_time_zone = get_option('hijri_calendar_time_zone');
+if ($hcal_time_zone == "") { $hcal_time_zone = "Asia/Dhaka"; }
+$tz = date_default_timezone_set($hcal_time_zone);
 
 $hijri_calendar_option1 = get_option('hijri_calendar_option1');
 if ($hijri_calendar_option1 == "") { $hijri_calendar_option1 = "0"; }

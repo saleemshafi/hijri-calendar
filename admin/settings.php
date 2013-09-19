@@ -9,22 +9,34 @@ echo '<div id="message" class="updated"><p>'. __('Settings saved.') .'</p></div>
     <?php
 settings_fields( 'hijri_calendar-settings-group' );
 
-$hijri_calendar_option1 = get_option('hijri_calendar_option1');if($hijri_calendar_option1 == "") { $hijri_calendar_option1 = "0"; }
+$hijri_calendar_option1 = get_option('hijri_calendar_option1');
+if($hijri_calendar_option1 == "") { $hijri_calendar_option1 = "0"; }
+
+$hijri_calendar_tz = get_option('hijri_calendar_time_zone');
+if($hijri_calendar_tz == "") { $hijri_calendar_tz = "Asia/Dhaka"; }
 ?>
-
+
+
 <br/><div style="width: 65%; float: left;">
 <div class="postbox" style="display: block;float:left;margin:5px;clear:left; width: 99%;">
 	<h3 class="hndle" style="padding:5px;"><span>Hijri Date Adjustment</span></h3>
-<div class="inside"><p align="justify">Here you can adjust hijri date output. For example, if you want to minus two days, input 48 hours and Save Changes.</p>
-    <table class="form-table">
+<div class="inside"><p align="justify">Here you can adjust time zone and hijri date output. Example: if your city is Dhaka, Bangladesh, then select Asia/Dhaka from time zone city list and then if you want to minus two days, input 48 hours.</p>
+
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Choose Time Zone:</th>
+        <td><?php include "time_zones.php"; ?>
+</td><td>Current Time Zone:<br/><span style="color: green;"><?php echo $hijri_calendar_tz; ?></span></td>
+        </tr>
         <tr valign="top">
         <th scope="row">Minus Hours:</th>
-        <td>-<input type="text" name="hijri_calendar_option1" size="3" value="<?php echo $hijri_calendar_option1; ?>"></td><td> Status: -<?php echo $hijri_calendar_option1; if($hijri_calendar_option1 == "0") { echo " Hour"; }
+        <td>-<input type="text" name="hijri_calendar_option1" size="3" value="<?php echo $hijri_calendar_option1; ?>"></td><td> Status: <span style="color: red;">-<?php echo $hijri_calendar_option1; if($hijri_calendar_option1 == "0") { echo " Hour"; }
 elseif($hijri_calendar_option1 == "1") { echo " Hour"; }
-else { echo " Hours"; } ?></td>
+else { echo " Hours"; } ?></span></td>
         </tr>
     </table>
     <?php submit_button(); ?>
+<div style="background-color: white; color: red; text-align: justify; padding: 3px; margin: 3px; border: green solid 1px;"><b>Note:</b>These settings are only for single line hijri date, not for monthly calendar.</div>
 </div></div>
 
 </form>

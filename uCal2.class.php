@@ -77,7 +77,7 @@ class uCal2 {
 			$n = $month;
 			$Y = $year;
 			$y = substr($year, 2);
-			$S = substr($j, -1)==1?"st" : (substr($j, -1)==2?"nd" : (substr($j, -1)==3?"rd" : "th"));
+			$S = substr($j, -2)==(11||12||13)?"th" : (substr($j, -1)==1?"st" : (substr($j, -1)==2?"nd" : (substr($j, -1)==3?"rd" : "th")));
 			if ($lang=="ar") {
 				$F = $this->uF[$lang][$n];
 				$M = $this->uM[$lang][$n];
