@@ -1,5 +1,6 @@
 <?php
 
+add_action( 'admin_init', 'register_hijri_calendar_settings' );
 add_action('admin_menu', 'register_hijri_calendar_menu_page');
 define( 'HCAL_DOMAIN', 'hijri-calendar' );
 
@@ -13,13 +14,14 @@ add_submenu_page(__FILE__, 'Settings', 'Settings', 'manage_options', 'hijri_cale
 
 add_submenu_page(__FILE__, 'Server Information', 'Server Information', 'add_users', 'hijri_calendar_server_info', 'hijri_calendar_server_info_menu');
 
-add_action( 'admin_init', 'register_hijri_calendar_settings' );
 }
 
 function register_hijri_calendar_settings() {
 
 //register our settings
-register_setting( 'hijri_calendar-settings-group', 'hijri_calendar_option1' );register_setting( 'hijri_calendar-settings-group', 'hijri_calendar_time_zone' );}
+register_setting( 'hijri_calendar-settings-group', 'hcal_options' );
+register_setting( 'hijri_calendar-settings-group', 'language_rplc' );
+}
 
 include "admin/sidebar.php";
 

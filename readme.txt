@@ -2,7 +2,7 @@
 Contributors: M.A. IMRAN
 Developer link: http://facebook.com/imran2w
 Tags: Hijri calendar, Hijri date, English Hijri date, Islamic calendar, Muslim calendar
-Requires at least: 2.5
+Requires at least: 2.8
 Tested up to: 3.6
 Stable tag: trunk
 
@@ -19,9 +19,6 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 = Features: =
 - Hijri Date (According to Hijri calendar)
 - Monthly Hijri Calendar.
-- Date output language: English.
-- Easy date adjustment options.
-
 
 = Speciality =
 * Very simple plugin.
@@ -29,8 +26,8 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 * All time zone support.
 * Simple settings options.
 * Wide-range compatibility.
-* Date output in English Language!
 * Easy to use widget and shortcodes!
+* Custom date output language support!
 * No special configuration or, knowledge required!
 
 
@@ -43,6 +40,14 @@ Install and activate the plugin. Then go to your "Dashboard > Hijri Calendar > U
 
 
 == Changelog ==
+
+= 3.0 =
+* Settings changed.
+* Language customization option added.
+* Widget customization option added.
+* Date formatting option added.
+* Invalid ordinal suffix problem solved.
+* Some code updated.
 
 = 2.2 =
 * Bug fix: invalid ordinal suffix for days 11, 12 and 13.
