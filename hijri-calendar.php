@@ -49,7 +49,13 @@ $lang = str_replace("13rd", "13th", $lang);
 return $lang;
 }
 
-function en_hijri_calendar() { include "calendarGEN.php"; }
+function en_hijri_calendar() { 
+  ob_start();
+  include "calendarGEN.php";
+  $calendar = ob_get_contents();
+  ob_end_clean();
+  return $calendar;
+}
 
 function en_hijri_date() {
 include "uCal2.class.php";
@@ -61,35 +67,37 @@ $d = new uCal2;
 $tz = date_default_timezone_set($options['time_zone']);
 
 $offset = $options['adjust_hour'] * 60 * 60;
+$date = '';
 
 if ($options['language'] == "en") {
-if ($options['format'] == "1") { echo hcal_lang_rplc($d->date("jS F, Y", time()-$offset)) . " A.H."; }
-elseif ($options['format'] == "2") { echo hcal_lang_rplc($d->date("jS F, Y", time()-$offset)); }
-elseif ($options['format'] == "3") { echo hcal_lang_rplc($d->date("F jS, Y", time()-$offset)); }
-elseif ($options['format'] == "4") { echo hcal_lang_rplc($d->date("Y F jS", time()-$offset)); }
-elseif ($options['format'] == "5") { echo hcal_lang_rplc($d->date("j F Y", time()-$offset)); }
-elseif ($options['format'] == "6") { echo hcal_lang_rplc($d->date("d F Y", time()-$offset)); }
-elseif ($options['format'] == "7") { echo hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
-elseif ($options['format'] == "8") { echo hcal_lang_rplc($d->date("Y F d", time()-$offset)); }
-elseif ($options['format'] == "9") { echo hcal_lang_rplc($d->date("d-m-Y", time()-$offset)); }
-elseif ($options['format'] == "10") { echo hcal_lang_rplc($d->date("Y-m-d", time()-$offset)); }
-else { echo hcal_lang_rplc($d->date("jS F, Y", time()-$offset)) . " A.H."; }
+if ($options['format'] == "1") { $date = hcal_lang_rplc($d->date("jS F, Y", time()-$offset)) . " A.H."; }
+elseif ($options['format'] == "2") { $date = hcal_lang_rplc($d->date("jS F, Y", time()-$offset)); }
+elseif ($options['format'] == "3") { $date = hcal_lang_rplc($d->date("F jS, Y", time()-$offset)); }
+elseif ($options['format'] == "4") { $date = hcal_lang_rplc($d->date("Y F jS", time()-$offset)); }
+elseif ($options['format'] == "5") { $date = hcal_lang_rplc($d->date("j F Y", time()-$offset)); }
+elseif ($options['format'] == "6") { $date = hcal_lang_rplc($d->date("d F Y", time()-$offset)); }
+elseif ($options['format'] == "7") { $date = hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
+elseif ($options['format'] == "8") { $date = hcal_lang_rplc($d->date("Y F d", time()-$offset)); }
+elseif ($options['format'] == "9") { $date = hcal_lang_rplc($d->date("d-m-Y", time()-$offset)); }
+elseif ($options['format'] == "10") { $date = hcal_lang_rplc($d->date("Y-m-d", time()-$offset)); }
+else { $date = hcal_lang_rplc($d->date("jS F, Y", time()-$offset)) . " A.H."; }
 }
 
 elseif ($options['language'] == "custom") {
-if ($options['format'] == "1") { echo hcal_lang_rplc($d->date("j F, Y", time()-$offset)) . " A.H."; }
-elseif ($options['format'] == "2") { echo hcal_lang_rplc($d->date("j F, Y", time()-$offset)); }
-elseif ($options['format'] == "3") { echo hcal_lang_rplc($d->date("F j, Y", time()-$offset)); }
-elseif ($options['format'] == "4") { echo hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
-elseif ($options['format'] == "5") { echo hcal_lang_rplc($d->date("j F Y", time()-$offset)); }
-elseif ($options['format'] == "6") { echo hcal_lang_rplc($d->date("d F Y", time()-$offset)); }
-elseif ($options['format'] == "7") { echo hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
-elseif ($options['format'] == "8") { echo hcal_lang_rplc($d->date("Y F d", time()-$offset)); }
-elseif ($options['format'] == "9") { echo hcal_lang_rplc($d->date("d-m-Y", time()-$offset)); }
-elseif ($options['format'] == "10") { echo hcal_lang_rplc($d->date("Y-m-d", time()-$offset)); }
-else { echo hcal_lang_rplc($d->date("d F, Y", time()-$offset)) . " A.H."; }
+if ($options['format'] == "1") { $date = hcal_lang_rplc($d->date("j F, Y", time()-$offset)) . " A.H."; }
+elseif ($options['format'] == "2") { $date = hcal_lang_rplc($d->date("j F, Y", time()-$offset)); }
+elseif ($options['format'] == "3") { $date = hcal_lang_rplc($d->date("F j, Y", time()-$offset)); }
+elseif ($options['format'] == "4") { $date = hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
+elseif ($options['format'] == "5") { $date = hcal_lang_rplc($d->date("j F Y", time()-$offset)); }
+elseif ($options['format'] == "6") { $date = hcal_lang_rplc($d->date("d F Y", time()-$offset)); }
+elseif ($options['format'] == "7") { $date = hcal_lang_rplc($d->date("Y F j", time()-$offset)); }
+elseif ($options['format'] == "8") { $date = hcal_lang_rplc($d->date("Y F d", time()-$offset)); }
+elseif ($options['format'] == "9") { $date = hcal_lang_rplc($d->date("d-m-Y", time()-$offset)); }
+elseif ($options['format'] == "10") { $date = hcal_lang_rplc($d->date("Y-m-d", time()-$offset)); }
+else { $date = hcal_lang_rplc($d->date("d F, Y", time()-$offset)) . " A.H."; }
 }
 
+return $date;
 }
 
 function widget_hijri_calendar($args) {
